@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useUserInfoContext } from "../../utils/Store";
 import { Link, useNavigate } from "react-router-dom";
 import slugify from "../../utils/slugify";
+import MessageBox from "../ChatBox/MessageBox";
 // import axios from "axios";
 
 // const url='https://panorbit.in/api/users.json'
@@ -16,7 +17,6 @@ const Homescreen = () => {
   const navigate = useNavigate();
 
   const selectUserHandler = (user) => {
-    // console.log(id)
     dispatch({ type: 'SET_SELECTED_USER', payload: user })
     // console.log(selectedUser.slug)
     navigate(`/profile/${slugify(user.name)}`)
@@ -35,6 +35,7 @@ const Homescreen = () => {
   // }, [])
   return (
     <div>
+      {/* <MessageBox user={usersInfo[3]}/> */}
       <Card
         className='shadow-lg rounded-4'
         border='light'

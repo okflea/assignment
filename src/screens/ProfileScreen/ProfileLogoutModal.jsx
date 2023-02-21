@@ -15,8 +15,9 @@ export default function ProfileLogoutModal() {
   const { usersInfo, selectedUser } = state;
 
   const otherTwoUsers = [];
-  otherTwoUsers.push(usersInfo.find((user)=>user!==selectedUser));
-  otherTwoUsers.push(usersInfo.find((user)=>user!==selectedUser&&user!==otherTwoUsers[0]));
+  // console.log(selectedUser)
+  otherTwoUsers.push(usersInfo.find((user)=>user.id!==selectedUser.id));
+  otherTwoUsers.push(usersInfo.find((user)=>user.id!==selectedUser.id&&user.id!==otherTwoUsers[0].id));
   const navigate = useNavigate();
   const changeUserHandler = (user) => {
     dispatch({type:'SET_SELECTED_USER',payload:user});
@@ -66,7 +67,9 @@ export default function ProfileLogoutModal() {
               </ListGroup.Item>
             ))}
             <Row style={{ justifyContent: 'center', }} >
-              <Button onClick={()=>{
+              <Button 
+                variant='danger'
+                onClick={()=>{
                 dispatch({type:'CLEAR_SELECTED_USER'});
                 navigate('/');
               }}

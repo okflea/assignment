@@ -7,18 +7,15 @@ let { Provider } = (usersInfoContext = createContext())
 
 const initialState = {
   usersInfo: data.users,
-  selectedUser: {}
+  selectedUser: {},
+  
 };
 function reducer(state, action) {
   switch (action.type) {
     case 'FETCH_SUCCESS':
       return { ...state, usersInfo: action.payload }
     case 'SET_SELECTED_USER':
-      // let newUser = state.usersInfo.find((user) => user.id === action.payload)
-      // const generatedSlug = slugify(action.payload.name);
-      // newUser = { ...newUser, slug: generatedSlug }
       return { ...state, selectedUser: {...action.payload} }
-
     case 'CLEAR_SELECTED_USER':
       return { ...state, selectedUser: {} }
     default:

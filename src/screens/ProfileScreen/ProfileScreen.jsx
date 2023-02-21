@@ -8,18 +8,18 @@ import './index.css'
 import { useUserInfoContext } from '../../utils/Store.jsx';
 import ProfileLogoutModal from './ProfileLogoutModal';
 import { useNavigate } from 'react-router-dom';
-// import GMap from './GMap';
+
 const ProfileScreen = () => {
-  const { state, dispatch } = useUserInfoContext();
-  const { usersInfo, selectedUser } = state;
-  const navigate = useNavigate();
-  useEffect(() => {
-    console.log(selectedUser.slug)
-    if(!selectedUser)
-      navigate('/')
-  }, [])
-  // const selectedUser = usersInfo[usersInfo.findIndex((user) => user.id === selectedId)];
-  console.log(selectedUser)
+  const { state } = useUserInfoContext();
+  const { selectedUser } = state;
+  // const navigate = useNavigate();
+  // useEffect(() => {
+    // if(Object.keys(selectedUser).length!==0)
+    // {
+    // console.log(window.location.pathname)
+      // navigate('/')
+    // }
+  // },[])
 
   const userGeoLocation = {
     lat: parseFloat(selectedUser.address.geo.lat),
@@ -27,6 +27,7 @@ const ProfileScreen = () => {
   }
   const [selectedTab, setSelectedTab] = useState(1);
   return (
+    
     <Container>
       <div className="navigation">
         <ul>
@@ -187,7 +188,8 @@ const ProfileScreen = () => {
                 </Row>
               </Row>
               <Row style={{ paddingLeft: '5vw' }} >
-                <MapContainer center={[userGeoLocation.lat, userGeoLocation.lng]} zoom={4} scrollWheelZoom={false}>
+                {/* <MapContainer center={[userGeoLocation.lat, userGeoLocation.lng]} zoom={4} scrollWheelZoom={false}> */}
+                <MapContainer center={[parseFloat(selectedUser.address.geo.lat), parseFloat(selectedUser.address.geo.lng)]} zoom={3} scrollWheelZoom={false}>
                   <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />

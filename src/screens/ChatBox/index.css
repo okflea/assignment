@@ -50,3 +50,22 @@
 .chat-col{
   padding-right: 0;
 }
+.bubble{
+  margin-left: 2rem;
+  max-width: 150px;
+  font-size: x-small;
+  background-color: lightgrey;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius:4px;
+}
+
+.bubble-right{
+  /* justify-items: right; */
+  max-width: 150px;
+  font-size: x-small;
+  background-color: lightgrey;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius:4px;
+}
