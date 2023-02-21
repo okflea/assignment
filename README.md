@@ -4,7 +4,6 @@ Made with React ,react-bootstrap, vite(buid tool),react-router-dom, axios, leafl
 Live Demo :
 This application is deployed on cyclic Please check it out :smile: [here](https://aquamarine-sherbet-ad576d.netlify.app/).
 
-https://aquamarine-sherbet-ad576d.netlify.app/
 
 Learning points :
 * Using UI framework - react-Bootstrap
