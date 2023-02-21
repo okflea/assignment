@@ -1,15 +1,13 @@
 import ListGroup from "react-bootstrap/ListGroup"
 import Card from 'react-bootstrap/Card';
 import './index.css'
-// import data from "../../utils/data.js";
 import { useEffect, useState } from "react";
 import { useUserInfoContext } from "../../utils/Store";
 import { Link, useNavigate } from "react-router-dom";
 import slugify from "../../utils/slugify";
-import MessageBox from "../ChatBox/MessageBox";
-// import axios from "axios";
+import axios from "axios";
 
-// const url='https://panorbit.in/api/users.json'
+const url='https://panorbit.in/api/users.json'
 const Homescreen = () => {
   const { state, dispatch } = useUserInfoContext();
   const { usersInfo, selectedUser } = state;
@@ -18,21 +16,17 @@ const Homescreen = () => {
 
   const selectUserHandler = (user) => {
     dispatch({ type: 'SET_SELECTED_USER', payload: user })
-    // console.log(selectedUser.slug)
     navigate(`/profile/${slugify(user.name)}`)
   }
-  // const [usersInfo, setUsersInfo] = useState((data.users));
-  // console.log(usersInfo)
-  // useEffect(() => {
+  useEffect(() => {
+  if(usersInfo.length===0){
+      console.log('calling again')
+  axios.get(url).then((response) => {
+      dispatch({type:'FETCH_SUCCESS',payload:response.data.users})
+      });
+    }
 
-  // console.log(data)
-
-  // axios.get(url).then((response) => {
-  //       setUsers(response[data]);
-  //       console.log(users)
-  //     });
-
-  // }, [])
+  }, [])
   return (
     <div>
       {/* <MessageBox user={usersInfo[3]}/> */}

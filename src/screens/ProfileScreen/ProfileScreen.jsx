@@ -12,14 +12,6 @@ import { useNavigate } from 'react-router-dom';
 const ProfileScreen = () => {
   const { state } = useUserInfoContext();
   const { selectedUser } = state;
-  // const navigate = useNavigate();
-  // useEffect(() => {
-    // if(Object.keys(selectedUser).length!==0)
-    // {
-    // console.log(window.location.pathname)
-      // navigate('/')
-    // }
-  // },[])
 
   const userGeoLocation = {
     lat: parseFloat(selectedUser.address.geo.lat),

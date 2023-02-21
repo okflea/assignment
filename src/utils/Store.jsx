@@ -1,12 +1,10 @@
 import { createContext, useContext, useReducer } from 'react';
-import data from './data';
-import slugify from './slugify';
 
 let usersInfoContext;
 let { Provider } = (usersInfoContext = createContext())
 
 const initialState = {
-  usersInfo: data.users,
+  usersInfo: [],
   selectedUser: {},
   
 };
