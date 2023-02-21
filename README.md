@@ -15,4 +15,4 @@ All other map apis like google maps and mapbox requires you to setup a billing a
 react-leaflet uses openstreetmaps which doesnot even require an api key .
 
 Things to be implemented :
-* storing data in localStorage and linking it to context so the page doesnot break on reload.
+* storing data in localStorage and linking it to context so the page doesnot break on page reload.
