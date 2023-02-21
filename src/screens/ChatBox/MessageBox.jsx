@@ -7,6 +7,8 @@ import Row from "react-bootstrap/Row"
 import useClickOutside from "../../utils/useClickOutside"
 
 const MessageBox = ({ user }) => {
+
+  //used to conditionally open or close the messageBox
   const [open, setOpen] = useState(false)
 
   const chatRef = useClickOutside(()=>setOpen(false))

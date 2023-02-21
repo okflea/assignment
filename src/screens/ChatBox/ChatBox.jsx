@@ -8,10 +8,17 @@ import Row from "react-bootstrap/Row"
 import MessageBox from "./MessageBox.jsx"
 import useClickOutside from "../../utils/useClickOutside.js"
 
-
 const ChatBox = () => {
+
+  //used to conditionally open or close the chatbox
   const [open, setOpen] = useState(false)
-  const [openMessageBox, setOpenMessageBox] = useState();
+
+  //used to conditionally render messagebox for each and everyother user
+  const [openMessageBox, setOpenMessageBox] = useState(); 
+  
+  //useClickOutside custom hook is used to identify anyclicks originating from outside 
+  // the custom hook takes a function and returns a ref which is to be attached to a element we want to ignore 
+  // when it identifies a click outside the above mentioned element ,it will run the passed function
   let domNode = useClickOutside(()=>{ setOpen(false) })
 
   const { state } = useUserInfoContext();
@@ -29,7 +36,7 @@ const ChatBox = () => {
       >
         <Card
           className='shadow-lg rounded-3'
-          ref={domNode}
+          ref={domNode}//the returned ref is attached to this Card element 
           style={{
             width: '15rem',
             maxHeight: '18rem',

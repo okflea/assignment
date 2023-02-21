@@ -6,7 +6,6 @@ let { Provider } = (usersInfoContext = createContext())
 const initialState = {
   usersInfo: [],
   selectedUser: {},
-  
 };
 function reducer(state, action) {
   switch (action.type) {

@@ -14,18 +14,18 @@ export default function ProfileLogoutModal() {
   const { state, dispatch } = useUserInfoContext();
   const { usersInfo, selectedUser } = state;
 
+  //for populating the two other users in logout popup
   const otherTwoUsers = [];
-  // console.log(selectedUser)
   otherTwoUsers.push(usersInfo.find((user)=>user.id!==selectedUser.id));
   otherTwoUsers.push(usersInfo.find((user)=>user.id!==selectedUser.id&&user.id!==otherTwoUsers[0].id));
   const navigate = useNavigate();
+
   const changeUserHandler = (user) => {
     dispatch({type:'SET_SELECTED_USER',payload:user});
     navigate(`/profile/${slugify(user.name)}`)
   }
   return (
     <>
-
       <Col onClick={() => setShow(true)} style={{ textAlign: 'right', }} >
         <span>
           <img
@@ -70,9 +70,9 @@ export default function ProfileLogoutModal() {
               <Button 
                 variant='danger'
                 onClick={()=>{
-                dispatch({type:'CLEAR_SELECTED_USER'});
-                navigate('/');
-              }}
+                  dispatch({type:'CLEAR_SELECTED_USER'});
+                  navigate('/');
+                }}
                 style={{ marginTop: '2px', borderRadius: '2rem', width: '6rem', color: 'white', fontWeight: 'bold', backgroundImage: 'linear-gradient(0deg,#ba6868,#c82727)', }} >
                 Sign out
               </Button>

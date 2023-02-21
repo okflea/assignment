@@ -1,5 +1,5 @@
-import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
-import { useEffect, useState } from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
@@ -7,7 +7,6 @@ import ChatBox from '../ChatBox/ChatBox.jsx'
 import './index.css'
 import { useUserInfoContext } from '../../utils/Store.jsx';
 import ProfileLogoutModal from './ProfileLogoutModal';
-import { useNavigate } from 'react-router-dom';
 
 const ProfileScreen = () => {
   const { state } = useUserInfoContext();
@@ -17,36 +16,27 @@ const ProfileScreen = () => {
     lat: parseFloat(selectedUser.address.geo.lat),
     lng: parseFloat(selectedUser.address.geo.lng)
   }
-  const [selectedTab, setSelectedTab] = useState(1);
+  const [selectedTab, setSelectedTab] = useState(1);//for navigating between the 4 tabs
   return (
-    
     <Container>
       <div className="navigation">
         <ul>
-          <li
-            className={selectedTab === 1 ? "list active" : "list"}
+          <li className={selectedTab === 1 ? "list active" : "list"}
             onClick={selectedTab !== 1 ? () => setSelectedTab(1) : () => { }} >
             <b></b>
             <b></b>
             <span className="title">Profile</span>
           </li>
-          <li>
-            <hr className='rounded' />
-          </li>
-          <li
-            className={selectedTab === 2 ? "list active" : "list"}
+          <li> <hr className='rounded' /> </li>
+          <li className={selectedTab === 2 ? "list active" : "list"}
             onClick={selectedTab !== 2 ? () => setSelectedTab(2) : () => { }} >
             <b></b>
             <b></b>
             <span className="title">Post</span>
           </li>
-          <li>
-            <hr className='rounded' />
-          </li>
-          <li
-            className={selectedTab === 3 ? "list active" : "list"}
-            onClick={selectedTab !== 3 ? () => setSelectedTab(3) : () => { }}
-          >
+          <li> <hr className='rounded' /> </li>
+          <li className={selectedTab === 3 ? "list active" : "list"}
+            onClick={selectedTab !== 3 ? () => setSelectedTab(3) : () => { }} >
             <b></b>
             <b></b>
             <span className="title">Gallery</span>
@@ -54,10 +44,8 @@ const ProfileScreen = () => {
           <li>
             <hr className='rounded' />
           </li>
-          <li
-            className={selectedTab === 4 ? "list active" : "list"}
-            onClick={selectedTab !== 4 ? () => setSelectedTab(4) : () => { }}
-          >
+          <li className={selectedTab === 4 ? "list active" : "list"}
+            onClick={selectedTab !== 4 ? () => setSelectedTab(4) : () => { }} >
             <b></b>
             <b></b>
             <span className="title">ToDo</span>
@@ -88,44 +76,29 @@ const ProfileScreen = () => {
                 <Row>
                   <Col></Col>
                   <Col>
-                    <img
-                      className='main-picture'
-                      src={selectedUser.profilepicture}
-                    />
+                    <img className='main-picture' src={selectedUser.profilepicture} />
                   </Col>
                   <Col></Col>
                 </Row>
                 <Row >
                   <Col></Col>
-                  <Col md='auto' >
-                    <strong>
-                      {selectedUser.name}
-                    </strong>
-                  </Col>
+                  <Col md='auto' > <strong> {selectedUser.name} </strong> </Col>
                   <Col></Col>
-                  <Row >
+                  <Row>
                     <Col style={{ textAlign: 'right' }} >Username:</Col>
-                    <Col>
-                      <strong> {selectedUser.username} </strong>
-                    </Col>
+                    <Col> <strong> {selectedUser.username} </strong> </Col>
                   </Row>
                   <Row >
                     <Col style={{ textAlign: 'right' }} >e-mail: </Col>
-                    <Col>
-                      <strong> {selectedUser.email} </strong>
-                    </Col>
+                    <Col> <strong> {selectedUser.email} </strong> </Col>
                   </Row>
                   <Row >
                     <Col style={{ textAlign: 'right' }} >Phone:</Col>
-                    <Col>
-                      <strong> {selectedUser.phone} </strong>
-                    </Col>
+                    <Col> <strong> {selectedUser.phone} </strong> </Col>
                   </Row>
                   <Row >
                     <Col style={{ textAlign: 'right' }} >Website:</Col>
-                    <Col>
-                      <strong> {selectedUser.website} </strong>
-                    </Col>
+                    <Col> <strong> {selectedUser.website} </strong> </Col>
                   </Row>
                 </Row>
               </Row>
@@ -136,58 +109,41 @@ const ProfileScreen = () => {
                 <Col></Col>
                 <Row >
                   <Col style={{ textAlign: 'right' }} >Name:</Col>
-                  <Col>
-                    <strong> {selectedUser.company.name} </strong>
-                  </Col>
+                  <Col> <strong> {selectedUser.company.name} </strong> </Col>
                 </Row>
                 <Row > <Col style={{ textAlign: 'right' }} >catchphrase:</Col>
-                  <Col>
-                    <strong> {selectedUser.company.catchPhrase} </strong>
-                  </Col>
+                  <Col> <strong> {selectedUser.company.catchPhrase} </strong> </Col>
                 </Row>
                 <Row > <Col style={{ textAlign: 'right' }} >bs:</Col>
-                  <Col>
-                    <strong> {selectedUser.company.bs} </strong>
-                  </Col>
+                  <Col> <strong> {selectedUser.company.bs} </strong> </Col>
                 </Row>
               </Row>
             </Col>
             <Col className='detail-map' >
-              <Row>
-                <Col> Address: </Col>
-              </Row>
+              <Row> <Col> Address: </Col> </Row>
               <Row>
                 <Row>
                   <Col style={{ textAlign: 'right' }} >Street:</Col>
-                  <Col>
-                    <strong> {selectedUser.address.street} </strong>
-                  </Col>
+                  <Col> <strong> {selectedUser.address.street} </strong> </Col>
                 </Row>
                 <Row > <Col style={{ textAlign: 'right' }} >Suite:</Col>
-                  <Col>
-                    <strong> {selectedUser.address.suite} </strong>
-                  </Col>
+                  <Col> <strong> {selectedUser.address.suite} </strong> </Col>
                 </Row>
                 <Row > <Col style={{ textAlign: 'right' }} >City:</Col>
-                  <Col>
-                    <strong> {selectedUser.address.city} </strong>
-                  </Col>
+                  <Col> <strong> {selectedUser.address.city} </strong> </Col>
                 </Row>
                 <Row > <Col style={{ textAlign: 'right' }} >Zipcode:</Col>
-                  <Col>
-                    <strong> {selectedUser.address.zipcode} </strong>
-                  </Col>
+                  <Col> <strong> {selectedUser.address.zipcode} </strong> </Col>
                 </Row>
               </Row>
               <Row style={{ paddingLeft: '5vw' }} >
-                {/* <MapContainer center={[userGeoLocation.lat, userGeoLocation.lng]} zoom={4} scrollWheelZoom={false}> */}
-                <MapContainer center={[parseFloat(selectedUser.address.geo.lat), parseFloat(selectedUser.address.geo.lng)]} zoom={3} scrollWheelZoom={false}>
+                {/* <MapContainer center={[parseFloat(selectedUser.address.geo.lat), parseFloat(selectedUser.address.geo.lng)]} zoom={3} scrollWheelZoom={false}> */}
+                <MapContainer center={[userGeoLocation.lat, userGeoLocation.lng]} zoom={4} scrollWheelZoom={false}>
                   <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                   <Marker position={[userGeoLocation.lat, userGeoLocation.lng]}>
-                    <Popup>
-                    </Popup>
+                    <Popup> </Popup>
                   </Marker>
                 </MapContainer>
               </Row>
@@ -200,9 +156,9 @@ const ProfileScreen = () => {
             </Col>
           </Row>
         )}
-        {selectedTab === 1 || (<Row md='auto' className="coming-soon" >Coming Soon</Row>)}
+        {selectedTab === 1 || (<Row md='auto' className="coming-soon" ><strong> Coming Soon </strong> </Row>)}
       </Container>
-        <ChatBox/>
+      <ChatBox />
     </Container>
   )
 }
