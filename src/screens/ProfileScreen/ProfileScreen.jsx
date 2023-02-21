@@ -156,7 +156,7 @@ const ProfileScreen = () => {
             </Col>
           </Row>
         )}
-        {selectedTab === 1 || (<Row md='auto' className="coming-soon" ><strong> Coming Soon </strong> </Row>)}
+        {selectedTab === 1 || (<Row md='auto' className="coming-soon" > Coming Soon  </Row>)}
       </Container>
       <ChatBox />
     </Container>

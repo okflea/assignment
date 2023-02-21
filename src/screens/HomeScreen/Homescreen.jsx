@@ -27,8 +27,18 @@ const Homescreen = () => {
       });
     }
   }, [])
+  //updating backgroundImage from index.css was not working as expected 
+  const mystyle = {
+    backgroundImage: "url(../../../public/Cloudy.svg)",
+    width:'100vw',
+    height:'100vh',
+    display:'flex',
+    justifyContent:'center',
+    alignItems:'center',
+    backgroundRepeat: "no-repeat"
+  }
   return (
-    <div>
+    <div style={mystyle}>
       <Card className='shadow-lg rounded-4' border='light' style={{ width: '40rem', height: '30rem' }} >
         <Card.Header
           className='text-center p-4'>
