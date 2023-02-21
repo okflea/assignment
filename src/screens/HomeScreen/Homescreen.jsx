@@ -29,7 +29,8 @@ const Homescreen = () => {
   }, [])
   //updating backgroundImage from index.css was not working as expected 
   const mystyle = {
-    backgroundImage: "url(../../../public/Cloudy.svg)",
+backgroundColor: '#D9AFD9',
+backgroundImage: 'linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%)',
     width:'100vw',
     height:'100vh',
     display:'flex',
